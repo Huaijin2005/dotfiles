@@ -1,0 +1,17 @@
+# === HotKey ===
+
+# terminal
+bindsym $mod+Return exec --no-startup-id wezterm
+# rofi menu
+bindsym $mod+w exec --no-startup-id rofi -show drun
+# bluetooth
+bindsym $mod+b exec --no-startup-id rofi-bluetooth
+# switching window
+bindsym $mod+Tab exec --no-startup-id rofi -show window
+# wlan
+bindsym $mod+n exec --no-startup-id networkmanager_dmenu
+#bindsym $mod+l exec --no-startup-id "betterlockscreen --lock"
+bindsym $mod+l exec --no-startup-id "sh ~/.config/i3/lock.sh"
+bindsym $mod+Shift+l exec --no-startup-id "sh ~/.config/rofi/powermenu.sh"
+# screenshot
+bindsym $mod+Shift+p exec --no-startup-id "flameshot gui"

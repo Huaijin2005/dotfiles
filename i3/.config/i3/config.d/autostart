@@ -1,0 +1,22 @@
+# === autostart ===
+
+# gpu output: xrandr & compositor: picom & wallpaper: feh
+exec_always --no-startup-id ~/.local/bin/init_i3wm.sh
+
+exec --no-startup-id xautolock -time 5 -locker '~/.config/i3/lock.sh'
+exec --no-startup-id dunst
+# exec --no-startup-id bash ~/.config/i3/gummy.sh
+exec --no-startup-id gummy start
+#exec --no-startup-id sh ~/.config/i3/mon.sh
+
+# input method
+exec_always --no-startup-id fcitx5
+
+# bar
+exec_always --no-startup-id bash ~/.config/polybar/launch.sh
+
+#exec_always --no-startup-id copyq
+
+exec_always --no-startup-id xset r rate 200 40
+# exec_always --no-startup-id screenkey
+exec_always --no-startup-id lxpolkit

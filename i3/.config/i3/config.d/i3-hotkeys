@@ -1,0 +1,79 @@
+# === Volume ===
+bindsym XF86AudioLowerVolume    exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2%
+bindsym XF86AudioRaiseVolume    exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2%
+bindsym XF86AudioMute           exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute        exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 2
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 2
+
+
+# === Window ===
+# kill focused window
+bindsym $mod+q kill
+
+# change focus window
+bindsym $mod+Left   focus left
+bindsym $mod+Down   focus down
+bindsym $mod+Up     focus up
+bindsym $mod+Right  focus right
+
+# move focused window
+bindsym $mod+Shift+Left     move left
+bindsym $mod+Shift+Down     move down
+bindsym $mod+Shift+Up       move up
+bindsym $mod+Shift+Right    move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+# split in vertical orientation
+bindsym $mod+v split v
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout
+#bindsym $mod+s layout stacking
+#bindsym $mod+d layout tabbed
+#bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+# moving tiling windows by $mod & left clicking
+tiling_drag modifier
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+Shift+a focus child
+
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# show the next scratchpad window or hide the focused scratchpad window
+bindsym $mod+minus scratchpad show
+
+# move focused floating window to the center of all outputs
+bindsym $mod+Shift+h move absolute position center
+
+# move focused floating window to the current position of the cursor
+bindsym $mod+Shift+m move position mouse
+
+# set a window to stick to the glass
+bindsym $mod+Shift+s sticky toggle
+
+# resize window
+bindsym $mod+r mode "  "
+mode "  " {
+    # same bindings, but for the arrow keys
+    bindsym Left    resize shrink width 4 px or 4 ppt
+    bindsym Down    resize grow height 4 px or 4 ppt
+    bindsym Up      resize shrink height 4 px or 4 ppt
+    bindsym Right   resize grow width 4 px or 4 ppt
+
+    # back to normal
+    bindsym Return mode "default"
+    bindsym $mod+r mode "default"
+}
