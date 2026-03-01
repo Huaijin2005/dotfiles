@@ -57,14 +57,24 @@ config.animation_fps = 60
 -- }
 
 -- Mouse bindings
+-- Wayland Selection: Primary & Clipboard
+local wayland_display = os.getenv("WAYLAND_DISPLAY")
+local is_wayland = (wayland_display ~= nil and wayland_display ~= "")
+local right_click_paste_action
+if is_wayland then
+	right_click_paste_action = wezterm.action.PasteFrom("PrimarySelection")
+else
+	right_click_paste_action = wezterm.action.PasteFrom("Clipboard")
+end
+
 config.mouse_bindings = {
 	-- 对应 { mouse = "Right", mods = "None", action = "Paste" }
 	{
 		event = { Down = { streak = 1, button = "Right" } },
 		mods = "NONE",
-		action = wezterm.action.PasteFrom("Clipboard"),
+		-- action = wezterm.action.PasteFrom("Clipboard"), -- Wayland: PrimarySelection
+		action = right_click_paste_action,
 	},
-
 	-- 对应 { mouse = "Right", mods = "Control", action = "None" }
 	-- 禁止 Ctrl + 右键 的任何默认行为
 	{
