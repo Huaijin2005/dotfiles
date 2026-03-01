@@ -165,6 +165,7 @@ alias ff="fastfetch"
 alias bat="batcat"
 alias python="python3"
 alias rm="trash-put"
+alias fd="fdfind"
 
 # fnm
 FNM_PATH="/home/huaijin/.local/share/fnm"
@@ -208,5 +209,8 @@ export PATH="/usr/local/texlive/2025/bin/x86_64-linux:$PATH"
 # starship
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
+
+# show hidden files
+setopt globdots
 
 # }}} end of User Configuration
