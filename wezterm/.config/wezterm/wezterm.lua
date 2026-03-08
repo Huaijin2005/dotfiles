@@ -27,7 +27,7 @@ config.font = wezterm.font_with_fallback({
 -- DPI scaling
 config.allow_square_glyphs_to_overflow_width = "Always"
 config.dpi_by_screen = {
-	-- ['HDMI-1-0'] = 192,  -- use `xrandr` to find the display name
+	-- ['HDMI-1-0'] = 192,  -- X11: use `xrandr` to find the display name
 	["eDP"] = 144,
 }
 
@@ -49,14 +49,7 @@ config.window_padding = {
 -- Animation
 config.animation_fps = 60
 
--- Key bindings
--- config.leader = {
---     {
-
---     },
--- }
-
--- Mouse bindings
+-- Bindings
 -- Wayland Selection: Primary & Clipboard
 local wayland_display = os.getenv("WAYLAND_DISPLAY")
 local is_wayland = (wayland_display ~= nil and wayland_display ~= "")
@@ -72,8 +65,14 @@ config.mouse_bindings = {
 	{
 		event = { Down = { streak = 1, button = "Right" } },
 		mods = "NONE",
-		-- action = wezterm.action.PasteFrom("Clipboard"), -- Wayland: PrimarySelection
+		-- X11: Clipboard; Wayland: PrimarySelection
 		action = right_click_paste_action,
+	},
+	-- Shift + 右键：粘贴常规 Clipboard
+	{
+		event = { Down = { streak = 1, button = "Right" } },
+		mods = "SHIFT",
+		action = wezterm.action.PasteFrom("Clipboard"),
 	},
 	-- 对应 { mouse = "Right", mods = "Control", action = "None" }
 	-- 禁止 Ctrl + 右键 的任何默认行为
@@ -82,6 +81,34 @@ config.mouse_bindings = {
 		mods = "CTRL",
 		action = wezterm.action.Nop,
 	},
+	-- 字体缩放 (Ctrl + 滚轮)
+	{
+		event = { Down = { streak = 1, button = { WheelUp = 1 } } },
+		mods = "CTRL",
+		action = wezterm.action.IncreaseFontSize,
+	},
+	{
+		event = { Down = { streak = 1, button = { WheelDown = 1 } } },
+		mods = "CTRL",
+		action = wezterm.action.DecreaseFontSize,
+	},
+	{
+		event = { Down = { streak = 1, button = "Middle" } },
+		mods = "CTRL",
+		action = wezterm.action.ResetFontSize,
+	},
+}
+
+config.keys = {
+        -- Ctrl + = 或者 Ctrl + + 放大字体 (兼容不同键盘区的加号)
+        { key = "=", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
+        { key = "+", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
+
+        -- Ctrl + - 缩小字体
+        { key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
+
+        -- Ctrl + 0 恢复默认字体大小
+        { key = "0", mods = "CTRL", action = wezterm.action.ResetFontSize },
 }
 
 -- Input method
