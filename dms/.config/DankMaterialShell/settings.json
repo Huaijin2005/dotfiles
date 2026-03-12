@@ -115,7 +115,7 @@
       "width": 50
     }
   ],
-  "showWorkspaceIndex": false,
+  "showWorkspaceIndex": true,
   "showWorkspaceName": false,
   "showWorkspacePadding": false,
   "workspaceScrolling": false,
@@ -125,7 +125,7 @@
   "workspaceAppIconSizeOffset": 0,
   "groupWorkspaceApps": true,
   "workspaceFollowFocus": false,
-  "showOccupiedWorkspacesOnly": false,
+  "showOccupiedWorkspacesOnly": true,
   "reverseScrolling": false,
   "dwlShowAllTags": false,
   "workspaceColorMode": "default",
@@ -222,16 +222,16 @@
   "soundNewNotification": true,
   "soundVolumeChanged": true,
   "soundPluggedIn": true,
-  "acMonitorTimeout": 0,
-  "acLockTimeout": 0,
+  "acMonitorTimeout": 600,
+  "acLockTimeout": 600,
   "acSuspendTimeout": 0,
   "acSuspendBehavior": 0,
-  "acProfileName": "",
-  "batteryMonitorTimeout": 0,
-  "batteryLockTimeout": 0,
-  "batterySuspendTimeout": 0,
+  "acProfileName": "2",
+  "batteryMonitorTimeout": 180,
+  "batteryLockTimeout": 300,
+  "batterySuspendTimeout": 300,
   "batterySuspendBehavior": 0,
-  "batteryProfileName": "",
+  "batteryProfileName": "0",
   "batteryChargeLimit": 100,
   "lockBeforeSuspend": true,
   "loginctlLockIntegration": true,
@@ -376,7 +376,7 @@
   "activeDisplayProfile": {},
   "displayProfileAutoSelect": false,
   "displayShowDisconnected": false,
-  "displaySnapToEdge": true,
+  "displaySnapToEdge": false,
   "barConfigs": [
     {
       "id": "default",
@@ -388,8 +388,19 @@
       ],
       "showOnLastDisplay": false,
       "leftWidgets": [
-        "workspaceSwitcher",
-        "focusedWindow"
+        {
+          "id": "workspaceSwitcher",
+          "enabled": true
+        },
+        {
+          "id": "focusedWindow",
+          "enabled": true,
+          "focusedWindowCompactMode": false
+        },
+        {
+          "id": "network_speed_monitor",
+          "enabled": true
+        }
       ],
       "centerWidgets": [
         "clock",
