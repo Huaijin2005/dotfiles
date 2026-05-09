@@ -99,21 +99,95 @@ config.mouse_bindings = {
 	},
 }
 
+local split_mod = "CTRL"
+-- 定义快捷键映射表
 config.keys = {
-        -- Ctrl + = 或者 Ctrl + + 放大字体 (兼容不同键盘区的加号)
-        { key = "=", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
-        { key = "+", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
+-- ===== 创建分屏 (SUPER + h/j/k/l) =====
+  -- 向左分屏
+  {
+    key = 'h',
+    mods = split_mod,
+    action = wezterm.action.SplitPane { direction = 'Left' },
+  },
+  -- 向下分屏
+  {
+    key = 'j',
+    mods = split_mod,
+    action = wezterm.action.SplitPane { direction = 'Down' },
+  },
+  -- 向上分屏
+  {
+    key = 'k',
+    mods = split_mod,
+    action = wezterm.action.SplitPane { direction = 'Up' },
+  },
+  -- 向右分屏
+  {
+    key = 'l',
+    mods = split_mod,
+    action = wezterm.action.SplitPane { direction = 'Right' },
+  },
 
-        -- Ctrl + - 缩小字体
-        { key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
+  -- ===== 移动焦点 (SUPER + SHIFT + h/j/k/l) =====
+  -- 焦点左移
+  {
+    key = 'h',
+    mods = split_mod .. '|SHIFT',
+    action = wezterm.action.ActivatePaneDirection 'Left',
+  },
+  -- 焦点下移
+  {
+    key = 'j',
+    mods = split_mod .. '|SHIFT',
+    action = wezterm.action.ActivatePaneDirection 'Down',
+  },
+  -- 焦点上移
+  {
+    key = 'k',
+    mods = split_mod .. '|SHIFT',
+    action = wezterm.action.ActivatePaneDirection 'Up',
+  },
+  -- 焦点右移
+  {
+    key = 'l',
+    mods = split_mod .. '|SHIFT',
+    action = wezterm.action.ActivatePaneDirection 'Right',
+  },
 
-        -- Ctrl + 0 恢复默认字体大小
-        { key = "0", mods = "CTRL", action = wezterm.action.ResetFontSize },
+  -- ===== 关闭窗口 (SUPER + q) =====
+  {
+    key = 'q',
+    mods = split_mod,
+    -- confirm = true 会在关闭前弹窗确认，如果你想做到“秒关”，可以改为 confirm = false
+    action = wezterm.action.CloseCurrentPane { confirm = false },
+  },
+
+  -- Ctrl + = 或者 Ctrl + + 放大字体 (兼容不同键盘区的加号)
+  { key = "=", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
+  { key = "+", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
+
+  -- Ctrl + - 缩小字体
+  { key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
+
+  -- Ctrl + 0 恢复默认字体大小
+  { key = "0", mods = "CTRL", action = wezterm.action.ResetFontSize },
 }
 
 -- Input method
 config.use_ime = true
 config.enable_csi_u_key_encoding = false
+
+-- 判断当前操作系统
+local is_windows = wezterm.target_triple:find("windows") ~= nil
+local is_linux = wezterm.target_triple:find("linux") ~= nil
+
+-- 根据系统动态设置默认程序
+if is_windows then
+  config.default_prog = { 'pwsh.exe', '-NoLogo' }
+elseif is_linux then
+  -- Linux 下使用 zsh，并作为登录 shell (-l) 启动，以确保加载环境变量
+  config.default_prog = { '/bin/zsh', '-l' }
+end
 
 -- Finally, return the configuration to wezterm:
 return config
