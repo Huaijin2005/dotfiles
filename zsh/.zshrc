@@ -145,7 +145,7 @@ proxy_on
 source ~/.zsh/alias.zsh
 source ~/.zsh/setup.zsh
 
-# show hidden files
+# show hidden files for completion & match patterns
 setopt globdots
 
 # }}} end of User Configuration

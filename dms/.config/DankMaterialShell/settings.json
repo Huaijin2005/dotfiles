@@ -222,7 +222,7 @@
   "launcherLogoContrast": 1,
   "launcherLogoSizeOffset": 0,
   "fontFamily": "Noto Serif CJK SC",
-  "monoFontFamily": "FiraMono Nerd Font Mono",
+  "monoFontFamily": "CodeNewRoman Nerd Font Mono",
   "fontWeight": 400,
   "fontScale": 1,
   "notepadUseMonospace": true,
@@ -405,7 +405,10 @@
       "enabled": true,
       "position": 0,
       "screenPreferences": [
-        "all"
+        {
+          "name": "HDMI-A-1",
+          "model": "OF24Q"
+        }
       ],
       "showOnLastDisplay": false,
       "leftWidgets": [
