@@ -1,0 +1,5 @@
+alias ff="fastfetch"
+alias bat="batcat"
+alias python="python3"
+alias rm="trash-put"
+alias fd="fdfind"

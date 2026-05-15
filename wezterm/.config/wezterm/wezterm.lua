@@ -18,8 +18,9 @@ config.color_scheme = "Catppuccin Mocha"
 --config.color_scheme = "Tokyo Night Storm"
 
 -- Fonts
-config.font_size = 12
+config.font_size = 14
 config.font = wezterm.font_with_fallback({
+  { family = "CodeNewRoman Nerd Font" },
 	{ family = "FiraMono Nerd Font" },
 	{ family = "Noto Serif CJK SC" },
 })
@@ -60,6 +61,7 @@ else
 	right_click_paste_action = wezterm.action.PasteFrom("Clipboard")
 end
 
+-- Mouse bindings
 config.mouse_bindings = {
 	-- 对应 { mouse = "Right", mods = "None", action = "Paste" }
 	{
@@ -81,7 +83,7 @@ config.mouse_bindings = {
 		mods = "CTRL",
 		action = wezterm.action.Nop,
 	},
-	-- 字体缩放 (Ctrl + 滚轮)
+	-- Scaling font-size (Ctrl + 滚轮)
 	{
 		event = { Down = { streak = 1, button = { WheelUp = 1 } } },
 		mods = "CTRL",
@@ -99,69 +101,22 @@ config.mouse_bindings = {
 	},
 }
 
+-- Key bindings
 local split_mod = "CTRL"
--- 定义快捷键映射表
 config.keys = {
--- ===== 创建分屏 (SUPER + h/j/k/l) =====
-  -- 向左分屏
-  {
-    key = 'h',
-    mods = split_mod,
-    action = wezterm.action.SplitPane { direction = 'Left' },
-  },
-  -- 向下分屏
-  {
-    key = 'j',
-    mods = split_mod,
-    action = wezterm.action.SplitPane { direction = 'Down' },
-  },
-  -- 向上分屏
-  {
-    key = 'k',
-    mods = split_mod,
-    action = wezterm.action.SplitPane { direction = 'Up' },
-  },
-  -- 向右分屏
-  {
-    key = 'l',
-    mods = split_mod,
-    action = wezterm.action.SplitPane { direction = 'Right' },
-  },
+-- ===== Split windows (SUPER + h/j/k/l) =====
+  { key = 'h', mods = split_mod, action = wezterm.action.SplitPane { direction = 'Left' } },
+  { key = 'j', mods = split_mod, action = wezterm.action.SplitPane { direction = 'Down' } },
+  { key = 'k', mods = split_mod, action = wezterm.action.SplitPane { direction = 'Up' } },
+  { key = 'l', mods = split_mod, action = wezterm.action.SplitPane { direction = 'Right' } },
+  { key = 'q', mods = split_mod, action = wezterm.action.CloseCurrentPane { confirm = false } },
 
-  -- ===== 移动焦点 (SUPER + SHIFT + h/j/k/l) =====
-  -- 焦点左移
-  {
-    key = 'h',
-    mods = split_mod .. '|SHIFT',
-    action = wezterm.action.ActivatePaneDirection 'Left',
-  },
-  -- 焦点下移
-  {
-    key = 'j',
-    mods = split_mod .. '|SHIFT',
-    action = wezterm.action.ActivatePaneDirection 'Down',
-  },
-  -- 焦点上移
-  {
-    key = 'k',
-    mods = split_mod .. '|SHIFT',
-    action = wezterm.action.ActivatePaneDirection 'Up',
-  },
-  -- 焦点右移
-  {
-    key = 'l',
-    mods = split_mod .. '|SHIFT',
-    action = wezterm.action.ActivatePaneDirection 'Right',
-  },
-
-  -- ===== 关闭窗口 (SUPER + q) =====
-  {
-    key = 'q',
-    mods = split_mod,
-    -- confirm = true 会在关闭前弹窗确认，如果你想做到“秒关”，可以改为 confirm = false
-    action = wezterm.action.CloseCurrentPane { confirm = false },
-  },
-
+  -- ===== Focus move (SUPER + SHIFT + h/j/k/l) =====
+  { key = 'h', mods = split_mod .. '|SHIFT', action = wezterm.action.ActivatePaneDirection 'Left' },
+  { key = 'j', mods = split_mod .. '|SHIFT', action = wezterm.action.ActivatePaneDirection 'Down' },
+  { key = 'k', mods = split_mod .. '|SHIFT', action = wezterm.action.ActivatePaneDirection 'Up' },
+  { key = 'l', mods = split_mod .. '|SHIFT', action = wezterm.action.ActivatePaneDirection 'Right' },
+  
   -- Ctrl + = 或者 Ctrl + + 放大字体 (兼容不同键盘区的加号)
   { key = "=", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
   { key = "+", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
@@ -177,16 +132,10 @@ config.keys = {
 config.use_ime = true
 config.enable_csi_u_key_encoding = false
 
--- 判断当前操作系统
+-- Login shell
 local is_windows = wezterm.target_triple:find("windows") ~= nil
-local is_linux = wezterm.target_triple:find("linux") ~= nil
-
--- 根据系统动态设置默认程序
 if is_windows then
   config.default_prog = { 'pwsh.exe', '-NoLogo' }
-elseif is_linux then
-  -- Linux 下使用 zsh，并作为登录 shell (-l) 启动，以确保加载环境变量
-  config.default_prog = { '/bin/zsh', '-l' }
 end
 
 -- Finally, return the configuration to wezterm:

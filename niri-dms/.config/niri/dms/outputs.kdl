@@ -12,3 +12,9 @@ output "eDP-1" {
     position x=2560 y=0
 }
 
+output "eDP-2" {
+    mode "2560x1600@120.006"
+    scale 1.25
+    position x=2560 y=0
+}
+

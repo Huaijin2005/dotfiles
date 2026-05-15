@@ -138,77 +138,12 @@ export LANGUAGE=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export http_proxy="http://127.0.0.1:7897"
-export https_proxy=$http_proxy
-export HTTP_PROXY="http://127.0.0.1:7897"
-export HTTPS_PROXY=$HTTP_PROXY
-export no_proxy="localhost,127.0.0.1,::1,ea.mmszxc.xin,222.29.98.181,111.170.151.120"
-export NO_PROXY=$no_proxy
 
+source ~/.zsh/function.zsh
+proxy_on
 
-# myalias
-function 2027(){
-   echo -e "\n  🌅 2026  \n\n  心有所悦、业有所成，\n  万事皆可期！\n" \
-   | cowsay -n -f tux \
-   | while IFS= read -r line; do echo "$line" ; sleep 0.1; done \
-   | lolcat -F 0.05 -S 12 -t
-}
-
-function 2026(){
-   echo -e "\n 🚀 System Reboot... \n [OK] Happiness Loaded \n [OK] Health Loaded \n [OK] Wealth Loaded \n\n Happy New Year 2026! \n" \
-   | cowsay -n -f tux \
-   | while IFS= read -r line; do echo "$line" ; sleep 0.1; done \
-   | lolcat -F 0.05 -S 12 -t
-}
-
-alias ff="fastfetch"
-alias bat="batcat"
-alias python="python3"
-alias rm="trash-put"
-alias fd="fdfind"
-
-# fnm
-FNM_PATH="/home/huaijin/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "`fnm env`"
-fi
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/huaijin/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/huaijin/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/huaijin/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/huaijin/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-# yazi
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-	rm -f -- "$tmp"
-}
-
-. "$HOME/.local/bin/env"
-
-# Tex Live
-export MANPATH="/usr/local/texlive/2025/texmf-dist/doc/man:$MANPATH"
-export INFOPATH="/usr/local/texlive/2025/texmf-dist/doc/info:$INFOPATH"
-export PATH="/usr/local/texlive/2025/bin/x86_64-linux:$PATH"
-
-# starship
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
-eval "$(starship init zsh)"
+source ~/.zsh/alias.zsh
+source ~/.zsh/setup.zsh
 
 # show hidden files
 setopt globdots
