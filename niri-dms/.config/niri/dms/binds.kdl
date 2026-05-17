@@ -120,6 +120,7 @@ binds {
     Print { screenshot show-pointer=true; }
     Super+Shift+P hotkey-overlay-title="Screenshot (Interactive)" { screenshot show-pointer=true; }
     Mod+Shift+E { quit; }
+    Super+E { spawn "xdg-open" "."; }
     Super+Return hotkey-overlay-title="Open Terminal" { spawn "wezterm"; }
     Mod+D repeat=false { toggle-overview; }
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }

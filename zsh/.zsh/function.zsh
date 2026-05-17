@@ -1,11 +1,18 @@
+export PROXY="http://127.0.0.1:7897"
 function proxy_on(){
-	export http_proxy="http://127.0.0.1:7897"
-	export https_proxy=$http_proxy
-	export HTTP_PROXY="http://127.0.0.1:7897"
-	export HTTPS_PROXY=$HTTP_PROXY
-	git config --global http.proxy "http://127.0.0.1:7897"
-    git config --global https.proxy "http://127.0.0.1:7897"
-	echo "Proxy enabled"
+	export http_proxy="$PROXY"
+	export https_proxy="$PROXY"
+   export all_proxy="$PROXY"
+   export HTTP_PROXY="$http_proxy"
+	export HTTPS_PROXY="$https_proxy"
+   export ALL_PROXY="$all_proxy"
+	echo "Proxy enabled: $PROXY!"
+}
+
+function proxy_off() {
+    unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY
+    unset all_proxy ALL_PROXY
+    echo "Proxy disabled!"
 }
 
 function 2027(){

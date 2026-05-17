@@ -202,7 +202,7 @@
     "theme": "System Default",
     "size": 24,
     "niri": {
-      "hideWhenTyping": false,
+      "hideWhenTyping": true,
       "hideAfterInactiveMs": 0
     },
     "hyprland": {
@@ -237,7 +237,7 @@
   "soundVolumeChanged": true,
   "soundPluggedIn": true,
   "acMonitorTimeout": 600,
-  "acLockTimeout": 600,
+  "acLockTimeout": 0,
   "acSuspendTimeout": 0,
   "acSuspendBehavior": 0,
   "acProfileName": "2",
@@ -266,7 +266,7 @@
   "gtkThemingEnabled": false,
   "qtThemingEnabled": false,
   "syncModeWithPortal": true,
-  "terminalsAlwaysDark": false,
+  "terminalsAlwaysDark": true,
   "muxType": "tmux",
   "muxUseCustomCommand": false,
   "muxCustomCommand": "",
@@ -277,13 +277,13 @@
   "matugenTemplateHyprland": false,
   "matugenTemplateMangowc": false,
   "matugenTemplateQt5ct": false,
-  "matugenTemplateQt6ct": true,
+  "matugenTemplateQt6ct": false,
   "matugenTemplateFirefox": false,
   "matugenTemplatePywalfox": false,
   "matugenTemplateZenBrowser": false,
   "matugenTemplateVesktop": false,
   "matugenTemplateEquibop": false,
-  "matugenTemplateGhostty": false,
+  "matugenTemplateGhostty": true,
   "matugenTemplateKitty": false,
   "matugenTemplateFoot": false,
   "matugenTemplateAlacritty": false,
@@ -293,7 +293,7 @@
   "matugenTemplateKcolorscheme": true,
   "matugenTemplateVscode": false,
   "matugenTemplateEmacs": false,
-  "matugenTemplateZed": true,
+  "matugenTemplateZed": false,
   "showDock": false,
   "dockAutoHide": false,
   "dockSmartAutoHide": false,
@@ -343,8 +343,8 @@
   "hideBrightnessSlider": false,
   "notificationTimeoutLow": 5000,
   "notificationTimeoutNormal": 5000,
-  "notificationTimeoutCritical": 0,
-  "notificationCompactMode": false,
+  "notificationTimeoutCritical": 10000,
+  "notificationCompactMode": true,
   "notificationPopupPosition": 0,
   "notificationAnimationSpeed": 1,
   "notificationCustomAnimationDuration": 400,
@@ -355,7 +355,7 @@
   "notificationHistorySaveNormal": true,
   "notificationHistorySaveCritical": true,
   "notificationRules": [],
-  "osdAlwaysShowValue": false,
+  "osdAlwaysShowValue": true,
   "osdPosition": 5,
   "osdVolumeEnabled": true,
   "osdMediaVolumeEnabled": true,
@@ -374,7 +374,8 @@
     "poweroff",
     "lock",
     "suspend",
-    "hibernate"
+    "hibernate",
+    "restart"
   ],
   "powerMenuDefaultAction": "lock",
   "powerMenuGridLayout": true,
@@ -405,21 +406,13 @@
       "enabled": true,
       "position": 0,
       "screenPreferences": [
-        {
-          "name": "HDMI-A-1",
-          "model": "OF24Q"
-        }
+        "all"
       ],
       "showOnLastDisplay": false,
       "leftWidgets": [
         {
           "id": "workspaceSwitcher",
           "enabled": true
-        },
-        {
-          "id": "focusedWindow",
-          "enabled": true,
-          "focusedWindowCompactMode": false
         },
         {
           "id": "network_speed_monitor",
@@ -470,7 +463,7 @@
       "spacing": 0,
       "innerPadding": 4,
       "bottomGap": 0,
-      "transparency": 1,
+      "transparency": 0,
       "widgetTransparency": 1,
       "squareCorners": true,
       "noBackground": false,
@@ -506,7 +499,7 @@
       "shadowOpacity": 60,
       "shadowColorMode": "text",
       "shadowCustomColor": "#000000",
-      "clickThrough": false
+      "clickThrough": true
     }
   ],
   "desktopClockEnabled": false,

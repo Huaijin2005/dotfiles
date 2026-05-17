@@ -1,6 +1,10 @@
 alias ff="fastfetch"
-alias bat="batcat"
+alias cat="bat"
 alias python="python3"
 alias rm="trash-put"
-alias fd="fdfind"
-alias ls="ls -A --color=auto"
+alias ls="lsd -A --color=auto"
+alias cd="z"
+
+# DEPRECATED:
+# alias cat="batcat"
+# alias fd="fdfind"

@@ -120,10 +120,31 @@ animations {
         spring damping-ratio=0.85 stiffness=800 epsilon=0.0001
     }
 }
+blur {
+    // 决定模糊的强度和半径（默认 3）。
+    // 值越大模糊越丝滑、半径越大，但会成倍增加 GPU 的计算负担。
+    passes 2
+    
+    // 每次采样的偏移乘数（默认 3.0）。
+    // 调大此值可以在【不增加 GPU 负担】的情况下扩大模糊半径。
+    // 调试技巧：先试着调大 offset（比如调到 4.0），如果出现了画面撕裂或伪影，再回去增加 passes。
+    offset 3.0
+    
+    // 噪点覆盖强度（默认 0.02）。
+    // 给高斯模糊加上一层细微的噪点（毛玻璃质感），同时能有效防止色彩断层（Color Banding）。
+    noise 0.02
+    
+    // 模糊背景的色彩饱和度（默认 1.5）。
+    // 提高饱和度能让毛玻璃背后的颜色更鲜艳，配合 DMS 的设计语言视觉效果极佳。
+    saturation 1.5
+}
 // Work around WezTerm's initial configure bug by setting an empty default-column-width.
 window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
+    background-effect {
+        blur true
+    }
 }
 window-rule {
     match app-id=r#"^org\.gnome\."#

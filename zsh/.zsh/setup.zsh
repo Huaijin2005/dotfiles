@@ -28,3 +28,6 @@ function y() {
 # starship
 export STARSHIP_CONFIG=~/.config/starship.toml
 eval "$(starship init zsh)"
+
+# zoxide
+eval "$(zoxide init zsh)"
