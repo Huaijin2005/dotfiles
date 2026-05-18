@@ -4,26 +4,13 @@ local wezterm = require("wezterm")
 -- This will hold the configuration.
 -- lua-style tables are used for configuration.
 local config = wezterm.config_builder()
-
+config:set_strict_mode(true)
 config = {
 	automatically_reload_config = true,
 	enable_tab_bar = false,
 	window_close_confirmation = "NeverPrompt",
 	front_end = "WebGpu",
-	disable_default_key_bindings = true,
 }
-
--- Color scheme
-config.color_scheme = "Catppuccin Mocha"
---config.color_scheme = "Tokyo Night Storm"
-
--- Fonts
-config.font_size = 14
-config.font = wezterm.font_with_fallback({
-  { family = "CodeNewRoman Nerd Font" },
-	{ family = "FiraMono Nerd Font" },
-	{ family = "Noto Serif CJK SC" },
-})
 
 -- DPI scaling
 config.allow_square_glyphs_to_overflow_width = "Always"
@@ -32,101 +19,9 @@ config.dpi_by_screen = {
 	["eDP"] = 144,
 }
 
--- Cursor
-config.default_cursor_style = "BlinkingBlock"
-config.cursor_blink_rate = 600
-
--- Window
-config.window_background_opacity = 0.8
-config.window_decorations = "TITLE | RESIZE"
-config.scrollback_lines = 10000
-config.window_padding = {
-	left = "0.5cell",
-	right = "0.5cell",
-	top = "0.25cell",
-	bottom = "0.25cell",
-}
-
--- Animation
-config.animation_fps = 60
-
--- Bindings
--- Wayland Selection: Primary & Clipboard
-local wayland_display = os.getenv("WAYLAND_DISPLAY")
-local is_wayland = (wayland_display ~= nil and wayland_display ~= "")
-local right_click_paste_action
-if is_wayland then
-	right_click_paste_action = wezterm.action.PasteFrom("PrimarySelection")
-else
-	right_click_paste_action = wezterm.action.PasteFrom("Clipboard")
-end
-
--- Mouse bindings
-config.mouse_bindings = {
-	-- 对应 { mouse = "Right", mods = "None", action = "Paste" }
-	{
-		event = { Down = { streak = 1, button = "Right" } },
-		mods = "NONE",
-		-- X11: Clipboard; Wayland: PrimarySelection
-		action = right_click_paste_action,
-	},
-	-- Shift + 右键：粘贴常规 Clipboard
-	{
-		event = { Down = { streak = 1, button = "Right" } },
-		mods = "SHIFT",
-		action = wezterm.action.PasteFrom("Clipboard"),
-	},
-	-- 对应 { mouse = "Right", mods = "Control", action = "None" }
-	-- 禁止 Ctrl + 右键 的任何默认行为
-	{
-		event = { Down = { streak = 1, button = "Right" } },
-		mods = "CTRL",
-		action = wezterm.action.Nop,
-	},
-	-- Scaling font-size (Ctrl + 滚轮)
-	{
-		event = { Down = { streak = 1, button = { WheelUp = 1 } } },
-		mods = "CTRL",
-		action = wezterm.action.IncreaseFontSize,
-	},
-	{
-		event = { Down = { streak = 1, button = { WheelDown = 1 } } },
-		mods = "CTRL",
-		action = wezterm.action.DecreaseFontSize,
-	},
-	{
-		event = { Down = { streak = 1, button = "Middle" } },
-		mods = "CTRL",
-		action = wezterm.action.ResetFontSize,
-	},
-}
-
--- Key bindings
-local split_mod = "CTRL"
-config.keys = {
--- ===== Split windows (SUPER + h/j/k/l) =====
-  { key = 'h', mods = split_mod, action = wezterm.action.SplitPane { direction = 'Left' } },
-  { key = 'j', mods = split_mod, action = wezterm.action.SplitPane { direction = 'Down' } },
-  { key = 'k', mods = split_mod, action = wezterm.action.SplitPane { direction = 'Up' } },
-  { key = 'l', mods = split_mod, action = wezterm.action.SplitPane { direction = 'Right' } },
-  { key = 'q', mods = split_mod, action = wezterm.action.CloseCurrentPane { confirm = false } },
-
-  -- ===== Focus move (SUPER + SHIFT + h/j/k/l) =====
-  { key = 'h', mods = split_mod .. '|SHIFT', action = wezterm.action.ActivatePaneDirection 'Left' },
-  { key = 'j', mods = split_mod .. '|SHIFT', action = wezterm.action.ActivatePaneDirection 'Down' },
-  { key = 'k', mods = split_mod .. '|SHIFT', action = wezterm.action.ActivatePaneDirection 'Up' },
-  { key = 'l', mods = split_mod .. '|SHIFT', action = wezterm.action.ActivatePaneDirection 'Right' },
-  
-  -- Ctrl + = 或者 Ctrl + + 放大字体 (兼容不同键盘区的加号)
-  { key = "=", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
-  { key = "+", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
-
-  -- Ctrl + - 缩小字体
-  { key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
-
-  -- Ctrl + 0 恢复默认字体大小
-  { key = "0", mods = "CTRL", action = wezterm.action.ResetFontSize },
-}
+require("modules.theme").apply_to_config(config)
+require("modules.keybindings").apply_to_config(config)
+require("modules.mousebindings").apply_to_config(config)
 
 -- Input method
 config.use_ime = true
