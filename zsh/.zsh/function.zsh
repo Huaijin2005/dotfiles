@@ -28,3 +28,11 @@ function 2026(){
    | while IFS= read -r line; do echo "$line" ; sleep 0.1; done \
    | lolcat -F 0.05 -S 12 -t
 }
+
+function codex-a() {
+  CODEX_HOME="$HOME/.codex-a" codex "$@"
+}
+
+function codex-b() {
+  CODEX_HOME="$HOME/.codex-b" codex "$@"
+}

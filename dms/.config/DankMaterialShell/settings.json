@@ -243,7 +243,7 @@
   "acProfileName": "2",
   "batteryMonitorTimeout": 180,
   "batteryLockTimeout": 300,
-  "batterySuspendTimeout": 300,
+  "batterySuspendTimeout": 0,
   "batterySuspendBehavior": 0,
   "batteryProfileName": "0",
   "batteryChargeLimit": 100,
