@@ -144,6 +144,9 @@ proxy_on
 
 source ~/.zsh/alias.zsh
 source ~/.zsh/setup.zsh
+if [[ -f ~/.zsh/private.zsh ]]; then
+  source ~/.zsh/private.zsh
+fi
 
 # show hidden files for completion & match patterns
 setopt globdots

@@ -1,0 +1,40 @@
+format = """
+[░▒▓](#a3aed2)\
+$os\
+[](bg:#769ff0 fg:#a3aed2)\
+$directory\
+[](fg:#769ff0 bg:#394260)\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+[](fg:#394260 bg:#212736)\
+$docker_context\
+$c\
+$cmake\
+$cpp\
+$golang\
+$haskell\
+$java\
+$kotlin\
+$gradle\
+$lua\
+$nodejs\
+$php\
+$python\
+$rust\
+$swift\
+$typst\
+$xmake\
+$zig\
+$nix_shell\
+$conda\
+[](fg:#212736 bg:#1d2230)\
+$time\
+[ ](fg:#1d2230)\
+$status\
+$container\
+$shell\
+$character
+"""

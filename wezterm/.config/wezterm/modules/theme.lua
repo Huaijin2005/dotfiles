@@ -5,10 +5,11 @@ function module.apply_to_config(config)
     -- Color scheme
     config.color_scheme = "Catppuccin Mocha"
     -- config.color_scheme = 'Tokyo Night'
+    -- config.color_scheme = 'Tokyo Night Day'
     -- config.color_scheme = 'Dracula'
 
     -- Fonts
-    config.font_size = 14
+    config.font_size = 13
     config.font = wezterm.font_with_fallback({
         { family = "CodeNewRoman Nerd Font" },
         { family = "FiraMono Nerd Font" },
