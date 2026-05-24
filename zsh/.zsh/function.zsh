@@ -30,9 +30,71 @@ function 2026(){
 }
 
 function codex-a() {
-  CODEX_HOME="$HOME/.codex-a" codex "$@"
+   CODEX_HOME="$HOME/.codex-a" codex "$@"
 }
 
 function codex-b() {
-  CODEX_HOME="$HOME/.codex-b" codex "$@"
+   CODEX_HOME="$HOME/.codex-b" codex "$@"
 }
+
+
+
+function check_private() {
+   local private_file="${HOME}/.zsh/private.zsh"
+   local list_file="${HOME}/.zsh/private_env_list"
+   local missing=() extra=() private_vars=()
+
+   if [ ! -f "$private_file" ]; then
+      echo "Error: $private_file not found." >&2
+      return 1
+   fi
+
+   if [ -f "${HOME}/.zsh/private_env_list" ]; then
+      PRIVATE_ENV_LIST=(${(f)"$(sed 's/[[:space:]]*#.*//; /^[[:space:]]*$/d' "${HOME}/.zsh/private_env_list")"})
+   else
+      PRIVATE_ENV_LIST=()
+   fi
+
+   if command -v rg >/dev/null 2>&1; then
+      private_vars=($(rg '^[[:space:]]*export[[:space:]]+([A-Za-z_][A-Za-z0-9_]*)' -o -r '$1' "$private_file"))
+   elif echo test | grep -oP 'test' >/dev/null 2>&1; then
+      private_vars=($(grep -oP '^[[:space:]]*export[[:space:]]+\K[A-Za-z_]\w*' "$private_file"))
+   else
+      private_vars=($(sed -n 's/^[[:space:]]*export[[:space:]]\{1,\}\([A-Za-z_][A-Za-z0-9_]*\).*/\1/p' "$private_file"))
+   fi
+
+   for var in "${PRIVATE_ENV_LIST[@]}"; do
+      if [[ ! -v "$var" ]]; then
+         missing+=("$var")
+      fi
+   done
+
+   for var in "${private_vars[@]}"; do
+      if [ -z "${PRIVATE_ENV_LIST[(r)$var]}" ]; then
+         extra+=("$var")
+      fi
+   done
+
+   if [ ${#missing} -eq 0 ] && [ ${#extra} -eq 0 ]; then
+      echo "private.zsh matches PRIVATE_ENV_LIST."
+      return 0
+   fi
+
+   [ ${#missing} -gt 0 ] && echo "Missing: ${missing[*]}"
+   if [ ${#extra} -gt 0 ]; then
+      echo "Extra: ${extra[*]}"
+      echo -n "Add to $list_file? [y/N] "
+      read -r answer
+      case "$answer" in
+         [yY]|[yY][eE][sS])
+               for var in "${extra[@]}"; do
+                  echo "$var" >> "$list_file"
+               done
+               echo "Added: ${extra[*]}"
+               return 0
+               ;;
+      esac
+   fi
+   return 1
+}
+
