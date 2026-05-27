@@ -1,0 +1,14 @@
+{
+  "screenRecorder": {
+    "enabled": true,
+    "captureSource": "screen"
+  },
+  "amdGpuMonitor": {
+    "enabled": true,
+    "popoutStyle": "alt",
+    "minimumWidth": false
+  },
+  "screenCaptureToolbar": {
+    "enabled": false
+  }
+}

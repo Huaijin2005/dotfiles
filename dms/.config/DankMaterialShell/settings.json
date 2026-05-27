@@ -124,13 +124,13 @@
       "width": 50
     }
   ],
-  "showWorkspaceIndex": true,
+  "showWorkspaceIndex": false,
   "showWorkspaceName": false,
   "showWorkspacePadding": false,
   "workspaceScrolling": false,
-  "showWorkspaceApps": false,
+  "showWorkspaceApps": true,
   "workspaceDragReorder": true,
-  "maxWorkspaceIcons": 3,
+  "maxWorkspaceIcons": 20,
   "workspaceAppIconSizeOffset": 0,
   "groupWorkspaceApps": true,
   "workspaceFollowFocus": false,
@@ -344,7 +344,7 @@
   "notificationTimeoutLow": 5000,
   "notificationTimeoutNormal": 5000,
   "notificationTimeoutCritical": 10000,
-  "notificationCompactMode": true,
+  "notificationCompactMode": false,
   "notificationPopupPosition": 0,
   "notificationAnimationSpeed": 1,
   "notificationCustomAnimationDuration": 400,
@@ -425,11 +425,19 @@
       ],
       "rightWidgets": [
         {
-          "id": "appsDock",
+          "id": "systemTray",
           "enabled": true
         },
         {
-          "id": "systemTray",
+          "id": "separator",
+          "enabled": true
+        },
+        {
+          "id": "clipboard",
+          "enabled": true
+        },
+        {
+          "id": "screenRecorder",
           "enabled": true
         },
         {
@@ -439,25 +447,27 @@
         {
           "id": "cpuUsage",
           "enabled": true,
-          "minimumWidth": true
+          "minimumWidth": false
         },
         {
           "id": "cpuTemp",
           "enabled": true,
-          "minimumWidth": true
+          "minimumWidth": false
+        },
+        {
+          "id": "amdGpuMonitor",
+          "enabled": true
         },
         {
           "id": "memUsage",
-          "enabled": true
+          "enabled": true,
+          "minimumWidth": false,
+          "showSwap": true
         },
         {
           "id": "diskUsage",
           "enabled": true,
           "mountPath": "/"
-        },
-        {
-          "id": "clipboard",
-          "enabled": true
         },
         {
           "id": "battery",
@@ -472,6 +482,10 @@
           "showMicPercent": false,
           "showBatteryIcon": false,
           "showScreenSharingIcon": false
+        },
+        {
+          "id": "privacyIndicator",
+          "enabled": true
         },
         {
           "id": "notificationButton",
