@@ -260,7 +260,12 @@
       "ChinaNet-3999-5G"
     ]
   },
-  "bluetoothDevicePins": {},
+  "bluetoothDevicePins": {
+    "preferredDevice": [
+      "2C:18:09:D7:19:7D",
+      "C8:24:78:00:DB:54"
+    ]
+  },
   "audioInputDevicePins": {},
   "audioOutputDevicePins": {},
   "gtkThemingEnabled": false,
