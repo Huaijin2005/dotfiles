@@ -159,7 +159,7 @@ window-rule {
     default-column-width { proportion 0.5; }
     open-floating false
 }
-window-rule {
+/-window-rule {
     match app-id=r#"^gnome-calculator$"#
     match app-id=r#"^galculator$"#
     match app-id=r#"^blueman-manager$"#
