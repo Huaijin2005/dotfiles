@@ -121,7 +121,7 @@ binds {
     Super+Shift+P hotkey-overlay-title="Screenshot (Interactive)" { screenshot show-pointer=true; }
     Mod+Shift+E { quit; }
     Super+E { spawn "xdg-open" "."; }
-    Super+Return hotkey-overlay-title="Open Terminal" { spawn "wezterm"; }
+    Super+Return hotkey-overlay-title="Open Terminal" { spawn "wezterm" "start" "--always-new-process"; }
     Mod+D repeat=false { toggle-overview; }
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+Slash { show-hotkey-overlay; }

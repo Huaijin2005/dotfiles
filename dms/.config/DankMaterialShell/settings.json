@@ -461,7 +461,9 @@
         },
         {
           "id": "amdGpuMonitor",
-          "enabled": true
+          "enabled": true,
+          "minimumWidth": true,
+          "showSwap": false
         },
         {
           "id": "memUsage",

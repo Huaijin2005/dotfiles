@@ -31,3 +31,8 @@ eval "$(starship init zsh)"
 
 # zoxide
 eval "$(zoxide init zsh)"
+
+# gnome-keyring
+if [ -x /usr/bin/gnome-keyring-daemon ] && [ -z "$GNOME_KEYRING_CONTROL" ]; then
+    export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gcr/ssh"
+fi
