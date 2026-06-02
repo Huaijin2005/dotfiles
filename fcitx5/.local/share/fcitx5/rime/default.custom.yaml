@@ -9,3 +9,5 @@ patch:
     # Control_L: commit_code
     Control_L: inline_ascii # 临时输入英文, 回车后恢复
     Control_R: noop
+  "key_binder/bindings/+":
+    - { when: always, accept: Control+space, toggle: ascii_mode }
