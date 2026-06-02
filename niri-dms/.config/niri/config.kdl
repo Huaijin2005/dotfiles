@@ -159,7 +159,7 @@ window-rule {
     default-column-width { proportion 0.5; }
     open-floating false
 }
-/-window-rule {
+window-rule {
     match app-id=r#"^gnome-calculator$"#
     match app-id=r#"^galculator$"#
     match app-id=r#"^blueman-manager$"#
@@ -183,6 +183,12 @@ window-rule {
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     match app-id="zoom"
+    open-floating true
+}
+window-rule{
+    match app-id="QQ"
+    match app-id="wechat"
+    match title="微信"
     open-floating true
 }
 // Open dms windows as floating by default

@@ -13,6 +13,7 @@ function module.apply_to_config(config)
     config.font = wezterm.font_with_fallback({
         { family = "CodeNewRoman Nerd Font" },
         { family = "FiraMono Nerd Font" },
+        { family = "LXGW WenKai Mono GB Screen" },
         { family = "Noto Serif CJK SC" },
     })
 

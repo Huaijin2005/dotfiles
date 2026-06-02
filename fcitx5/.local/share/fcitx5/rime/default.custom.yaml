@@ -2,3 +2,10 @@ patch:
   # 这里的 rime_ice_suggestion 为雾凇方案的默认预设
   __include: rime_ice_suggestion:/
   "menu/page_size": 9
+  "ascii_composer/switch_key":
+    Caps_Lock: clear
+    Shift_L: noop
+    Shift_R: noop
+    # Control_L: commit_code
+    Control_L: inline_ascii # 临时输入英文, 回车后恢复
+    Control_R: noop
