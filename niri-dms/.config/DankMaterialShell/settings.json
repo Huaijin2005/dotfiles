@@ -148,7 +148,7 @@
   "waveProgressEnabled": true,
   "scrollTitleEnabled": true,
   "audioVisualizerEnabled": true,
-  "audioScrollMode": "volume",
+  "audioScrollMode": "nothing",
   "audioWheelScrollAmount": 5,
   "clockCompactMode": false,
   "focusedWindowCompactMode": false,
@@ -422,6 +422,11 @@
         {
           "id": "network_speed_monitor",
           "enabled": true
+        },
+        {
+          "id": "music",
+          "enabled": true,
+          "mediaSize": 0
         }
       ],
       "centerWidgets": [
