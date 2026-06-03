@@ -16,9 +16,6 @@ function proxy_on
 	set -gx HTTPS_PROXY $PROXY
 	set -gx ALL_PROXY $PROXY
 
-	git config --global http.proxy $PROXY
-	git config --global https.proxy $PROXY
-
 	echo "Proxy enabled: $PROXY"
 end
 
@@ -29,9 +26,6 @@ function proxy_off
 	set -e HTTP_PROXY
 	set -e HTTPS_PROXY
 	set -e ALL_PROXY
-
-	git config --global --unset http.proxy
-	git config --global --unset https.proxy
 
 	echo "Proxy disabled"
 end

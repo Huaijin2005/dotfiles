@@ -30,7 +30,7 @@ zmodule duration-info
 zmodule git-info
 # A heavily reduced, ASCII-only version of the Spaceship and Starship prompts.
 # zmodule asciiship
-#zmodule gitster
+# zmodule gitster
 
 # gitster needs enhanced prompt plugin
 zmodule prompt-pwd
