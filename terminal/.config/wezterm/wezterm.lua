@@ -19,7 +19,7 @@ config.dpi_by_screen = {
 	["eDP"] = 144,
 }
 
-require("modules.theme").apply_to_config(config)
+require("modules.appearance").apply_to_config(config)
 require("modules.keybindings").apply_to_config(config)
 require("modules.mousebindings").apply_to_config(config)
 

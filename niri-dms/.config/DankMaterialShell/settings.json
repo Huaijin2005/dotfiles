@@ -288,7 +288,7 @@
   "matugenTemplateZenBrowser": false,
   "matugenTemplateVesktop": false,
   "matugenTemplateEquibop": false,
-  "matugenTemplateGhostty": true,
+  "matugenTemplateGhostty": false,
   "matugenTemplateKitty": false,
   "matugenTemplateFoot": false,
   "matugenTemplateAlacritty": false,

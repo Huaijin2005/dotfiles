@@ -1,6 +1,5 @@
 binds {
     Ctrl+Alt+Delete hotkey-overlay-title="Task Manager" { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
-    Ctrl+Shift+R hotkey-overlay-title="Rename Workspace" { spawn "dms" "ipc" "call" "workspace-rename" "open"; }
     Ctrl+XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "decrement" "3"; }
     Ctrl+XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "increment" "3"; }
     Mod+Comma hotkey-overlay-title="Settings" { spawn "dms" "ipc" "call" "settings" "focusOrToggle"; }
@@ -113,7 +112,7 @@ binds {
     Super+Shift+P hotkey-overlay-title="Screenshot (Interactive)" { screenshot show-pointer=true; }
     Mod+Shift+E { quit; }
     Super+E { spawn "xdg-open" "."; }
-    Super+Return hotkey-overlay-title="Open Terminal" { spawn "wezterm" "start" "--always-new-process"; }
+    Super+Return hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Tab repeat=false { toggle-overview; }

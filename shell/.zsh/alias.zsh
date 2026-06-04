@@ -19,6 +19,8 @@ if [ -x "$(command -v zoxide)" ]; then
     alias cd="z"
 fi
 
+setopt COMPLETE_ALIASES # Allow aliases to be auto-completed
+
 # DEPRECATED:
 # alias cat="batcat"
 # alias fd="fdfind"
