@@ -7,7 +7,6 @@ local config = wezterm.config_builder()
 config:set_strict_mode(true)
 config = {
 	automatically_reload_config = true,
-	enable_tab_bar = false,
 	window_close_confirmation = "NeverPrompt",
 	front_end = "WebGpu",
 }

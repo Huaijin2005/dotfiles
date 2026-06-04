@@ -32,6 +32,9 @@ function module.apply_to_config(config)
         bottom = "0.25cell",
     }
 
+    -- Title bar
+	config.enable_tab_bar = false
+
     -- Animation
     config.animation_fps = 60
 end

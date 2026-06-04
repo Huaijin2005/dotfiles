@@ -147,6 +147,15 @@ window-rule {
         blur true
     }
 }
+// Other terminals
+window-rule {
+    match app-id=r#"^kitty$"#
+    match app-id=r#"^com\.mitchellh\.ghostty$"#
+    default-column-width { proportion 0.333333; }
+    background-effect {
+        blur true
+    }
+}
 window-rule {
     match app-id=r#"^org\.gnome\."#
     draw-border-with-background false
