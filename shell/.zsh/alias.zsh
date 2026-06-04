@@ -18,6 +18,11 @@ fi
 if [ -x "$(command -v zoxide)" ]; then
     alias cd="z"
 fi
+# 交互式 shell + kitty 生效
+if [[ $- == *i* ]] && [ -n "${KITTY_WINDOW_ID:-}" ] && command -v kitten >/dev/null 2>&1; then
+    echo "Kitty detected, 'ssh' is aliased to 'kitten ssh'."
+    alias ssh='kitten ssh'
+fi
 
 setopt COMPLETE_ALIASES # Allow aliases to be auto-completed
 

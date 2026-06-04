@@ -6,13 +6,13 @@ function proxy_on(){
    export HTTP_PROXY="$http_proxy"
 	export HTTPS_PROXY="$https_proxy"
    export ALL_PROXY="$all_proxy"
-	echo "Proxy enabled: $PROXY!"
+	echo "Proxy enabled: $PROXY."
 }
 
 function proxy_off() {
     unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY
     unset all_proxy ALL_PROXY
-    echo "Proxy disabled!"
+    echo "Proxy disabled."
 }
 
 function 2027(){

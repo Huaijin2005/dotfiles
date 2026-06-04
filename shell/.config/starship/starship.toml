@@ -2,8 +2,14 @@
 
 add_newline = true
 
+# kitty 不支持渐变色块, 影响 [░▒▓](#a3aed2) 显示效果: https://github.com/kovidgoyal/kitty/issues/6108
+# 解决方案: 使用纯色块替代 https://github.com/romkatv/powerlevel10k/issues/537#issuecomment-592960982
+
 format = """
-[░▒▓](#a3aed2)\
+[ ](bg:#626A85)\
+[ ](bg:#7882A3)\
+[ ](bg:#8D99C1)\
+[ ](bg:#a3aed2)\
 $os\
 [](bg:#769ff0 fg:#a3aed2)\
 $directory\

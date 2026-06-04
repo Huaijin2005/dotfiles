@@ -112,7 +112,7 @@ binds {
     Super+Shift+P hotkey-overlay-title="Screenshot (Interactive)" { screenshot show-pointer=true; }
     Mod+Shift+E { quit; }
     Super+E { spawn "xdg-open" "."; }
-    Super+Return hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
+    Super+Return hotkey-overlay-title="Open Terminal" { spawn "kitty" "--single-instance"; }
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Tab repeat=false { toggle-overview; }
