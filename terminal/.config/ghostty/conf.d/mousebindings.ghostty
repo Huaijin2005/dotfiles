@@ -1,0 +1,9 @@
+# Ghostty does not expose WezTerm-style arbitrary mouse_bindings.
+# WezTerm equivalents:
+# - Left mouse selection completion copied to Clipboard.
+# - Right mouse button pasted from Clipboard.
+# - Ctrl+wheel adjusted font size.
+# - Ctrl+middle reset font size.
+#
+# Implement the Ghostty-supported parts here.
+right-click-action = paste
