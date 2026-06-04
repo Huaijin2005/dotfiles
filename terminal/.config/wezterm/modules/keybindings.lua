@@ -6,18 +6,18 @@ function module.apply_to_config(config)
     -- Key bindings
     local split_mod = "CTRL"
     config.keys = {
-        -- ===== Split windows (SUPER + h/j/k/l) =====
-        { key = 'h', mods = split_mod, action = wezterm.action.SplitPane { direction = 'Left' } },
-        { key = 'j', mods = split_mod, action = wezterm.action.SplitPane { direction = 'Down' } },
-        { key = 'k', mods = split_mod, action = wezterm.action.SplitPane { direction = 'Up' } },
-        { key = 'l', mods = split_mod, action = wezterm.action.SplitPane { direction = 'Right' } },
-        { key = 'q', mods = split_mod, action = wezterm.action.CloseCurrentPane { confirm = false } },
+        -- -- ===== Split windows (SUPER + h/j/k/l) =====
+        -- { key = 'h', mods = split_mod, action = wezterm.action.SplitPane { direction = 'Left' } },
+        -- { key = 'j', mods = split_mod, action = wezterm.action.SplitPane { direction = 'Down' } },
+        -- { key = 'k', mods = split_mod, action = wezterm.action.SplitPane { direction = 'Up' } },
+        -- { key = 'l', mods = split_mod, action = wezterm.action.SplitPane { direction = 'Right' } },
+        -- { key = 'q', mods = split_mod, action = wezterm.action.CloseCurrentPane { confirm = false } },
 
-        -- ===== Focus move (SUPER + SHIFT + h/j/k/l) =====
-        { key = 'h', mods = split_mod .. '|SHIFT', action = wezterm.action.ActivatePaneDirection 'Left' },
-        { key = 'j', mods = split_mod .. '|SHIFT', action = wezterm.action.ActivatePaneDirection 'Down' },
-        { key = 'k', mods = split_mod .. '|SHIFT', action = wezterm.action.ActivatePaneDirection 'Up' },
-        { key = 'l', mods = split_mod .. '|SHIFT', action = wezterm.action.ActivatePaneDirection 'Right' },
+        -- -- ===== Focus move (SUPER + SHIFT + h/j/k/l) =====
+        -- { key = 'h', mods = split_mod .. '|SHIFT', action = wezterm.action.ActivatePaneDirection 'Left' },
+        -- { key = 'j', mods = split_mod .. '|SHIFT', action = wezterm.action.ActivatePaneDirection 'Down' },
+        -- { key = 'k', mods = split_mod .. '|SHIFT', action = wezterm.action.ActivatePaneDirection 'Up' },
+        -- { key = 'l', mods = split_mod .. '|SHIFT', action = wezterm.action.ActivatePaneDirection 'Right' },
         
         -- Ctrl + =/+ Increase font size
         { key = "=", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
@@ -32,6 +32,9 @@ function module.apply_to_config(config)
         -- Copy & Paste
         { key = "c", mods = "CTRL|SHIFT", action = wezterm.action.CopyTo("Clipboard") },
         { key = "v", mods = "CTRL|SHIFT", action = wezterm.action.PasteFrom("Clipboard") },
+
+        -- 强制换行
+        { key = "Enter", mods = "SHIFT", action = wezterm.action.SendString("\n") },
     }
 end
 

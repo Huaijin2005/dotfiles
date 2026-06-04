@@ -2,30 +2,21 @@
 theme = Catppuccin Mocha
 
 # font
-# WezTerm font fallback chain:
-# CodeNewRoman Nerd Font -> FiraMono Nerd Font -> LXGW WenKai Mono GB Screen -> Noto Serif CJK SC
-font-family = ""
 font-family = CodeNewRoman Nerd Font
 font-family = FiraMono Nerd Font
 font-family = LXGW WenKai Mono GB Screen
 font-family = Noto Serif CJK SC
-# font-size = 12
-font-size = 13
+font-size = 12
 
 # window configuration
 # WezTerm used TITLE | RESIZE decorations and disabled the tab bar.
 # window-decoration = false
 window-decoration = auto
 window-show-tab-bar = never
-# WezTerm padding was 0.5cell horizontally and 0.25cell vertically.
-# window-padding-x = 12
-# window-padding-y = 12
-window-padding-x = 4
+window-padding-x = 5
 window-padding-y = 3
-# background-opacity = 1.0
 background-opacity = 0.8
-# background-blur-radius = 32
-background-blur = 32
+background-blur = true
 
 # cursor configuration
 cursor-style = block

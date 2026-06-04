@@ -40,7 +40,8 @@ input {
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    focus-follows-mouse max-scroll-amount="0%"
+    focus-follows-mouse max-scroll-amount="1%" // 1% 避免非整数缩放导致的无法切换聚焦
+    // 输出 2327，两个窗口各 1158.18 宽。只看窗口本体大约是：1158.18 * 2 = 2316.36, 但加上 niri gap ：4 + 1158.18 + 4 + 1158.18 + 4 = 2328.36, 看起来窗口完整显示, 但实际超出屏幕不会切换聚焦
 }
 
 layout {
