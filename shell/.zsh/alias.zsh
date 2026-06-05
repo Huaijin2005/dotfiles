@@ -1,7 +1,7 @@
 alias ff="fastfetch"
 alias python="python3"
 alias arch="uname -m"
-alias untar='tar -zxvf '
+alias untar='tar -xvf '
 alias untarxz='tar -xvJf '
 alias untargz='tar -xvzf '
 alias tarnow='tar -acf '

@@ -199,7 +199,7 @@
   "networkPreference": "wifi",
   "iconTheme": "System Default",
   "cursorSettings": {
-    "theme": "System Default",
+    "theme": "catppuccin-mocha-dark-cursors",
     "size": 24,
     "niri": {
       "hideWhenTyping": true,
