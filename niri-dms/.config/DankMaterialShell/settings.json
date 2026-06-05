@@ -148,7 +148,7 @@
   "waveProgressEnabled": true,
   "scrollTitleEnabled": true,
   "audioVisualizerEnabled": true,
-  "audioScrollMode": "nothing",
+  "audioScrollMode": "volume",
   "audioWheelScrollAmount": 5,
   "clockCompactMode": false,
   "focusedWindowCompactMode": false,
@@ -277,7 +277,7 @@
   "muxCustomCommand": "",
   "muxSessionFilter": "",
   "runDmsMatugenTemplates": true,
-  "matugenTemplateGtk": true,
+  "matugenTemplateGtk": false,
   "matugenTemplateNiri": true,
   "matugenTemplateHyprland": false,
   "matugenTemplateMangowc": false,
@@ -426,7 +426,11 @@
         {
           "id": "music",
           "enabled": true,
-          "mediaSize": 0
+          "mediaSize": 1
+        },
+        {
+          "id": "colorPicker",
+          "enabled": true
         }
       ],
       "centerWidgets": [

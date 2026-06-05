@@ -157,6 +157,13 @@ window-rule {
     }
 }
 window-rule {
+    match app-id=r#"^code$"#
+    background-effect {
+        blur true
+    }
+    opacity 0.95
+}
+window-rule {
     match app-id=r#"^org\.gnome\."#
     draw-border-with-background false
     geometry-corner-radius 12
