@@ -1,132 +1,132 @@
+// modified from 
+// https://raw.githubusercontent.com/harilvfs/fastfetch/refs/heads/old-days/fastfetch/config.jsonc
+// https://github.com/fastfetch-cli/fastfetch/blob/dev/presets/examples/10.jsonc
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
     "padding": {
       "top": 2
+      // "left": 3
     }
   },
-  "display": {
-    "separator": " -> ",
-    "constants": [
-      "──────────────────────────────"
-    ]
-  },
+  // "display": {
+  //   "separator": " -> ",
+  //   "constants": [
+  //     "──────────────────────────────"
+  //   ]
+  // },
   "modules": [
+    "break",
     {
       "type": "custom",
-      "format": "┌{$1}{$1}┐",
-      "outputColor": "90"
-    },
-    {
-      "type": "title",
-      "keyWidth": 10
-    },
-    {
-      "type": "custom",
-      "format": "└{$1}{$1}┘",
-      "outputColor": "90"
-    },
-    {
-      "type": "custom",
-      "format": " {#90}  {#31}  {#32}  {#33}  {#34}  {#35}  {#36}  {#37}  {#38}  {#39}       {#38}  {#37}  {#36}  {#35}  {#34}  {#33}  {#32}  {#31}  {#90}"
-    },
-    {
-      "type": "custom",
-      "format": "┌{$1}{$1}┐",
-      "outputColor": "90"
-    },
-    {
-      "type": "os",
-      "key": "{icon} OS",
-      "keyColor": "yellow"
-    },
-    {
-      "type": "kernel",
-      "key": "│ ├",
-      "keyColor": "yellow"
-    },
-    {
-      "type": "packages",
-      "key": "│ ├󰏖",
-      "keyColor": "yellow"
-    },
-    {
-      "type": "shell",
-      "key": "│ └",
-      "keyColor": "yellow"
-    },
-    {
-      "type": "wm",
-      "key": " DE/WM",
-      "keyColor": "blue"
-    },
-    {
-      "type": "lm",
-      "key": "│ ├󰧨",
-      "keyColor": "blue"
-    },
-    {
-      "type": "wmtheme",
-      "key": "│ ├󰉼",
-      "keyColor": "blue"
-    },
-    {
-      "type": "icons",
-      "key": "│ ├󰀻",
-      "keyColor": "blue"
-    },
-    {
-      "type": "terminal",
-      "key": "│ ├",
-      "keyColor": "blue"
-    },
-    {
-      "type": "wallpaper",
-      "key": "│ └󰸉",
-      "keyColor": "blue"
+      "format": "\u001b[90m┌─────────────────────── Hardware ───────────────────────┐"
     },
     {
       "type": "host",
-      "key": "󰌢 PC",
+      "key": "󰌢  PC",
       "keyColor": "green"
     },
     {
       "type": "cpu",
-      "key": "│ ├󰻠",
+      "key": "│ ├󰻠 ",
       "keyColor": "green"
     },
     {
       "type": "gpu",
-      "key": "│ ├󰍛",
+      "key": "│ ├󰍛 ",
       "keyColor": "green"
     },
     {
-      "type": "disk",
-      "key": "│ ├",
+      "type": "display",
+      "key": "│ ├󰍹 ",
       "keyColor": "green"
     },
     {
       "type": "memory",
-      "key": "│ ├󰑭",
+      "key": "│ ├󰑭 ",
       "keyColor": "green"
     },
     {
       "type": "swap",
-      "key": "│ ├󰓡",
+      "key": "│ ├󰓡 ",
       "keyColor": "green"
     },
     {
-      "type": "uptime",
-      "key": "│ ├󰅐",
+      "type": "disk",
+      "key": "└ └ ",
       "keyColor": "green"
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[90m└────────────────────────────────────────────────────────┘"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "\u001b[90m┌─────────────────────── Software ───────────────────────┐"
+    },
+    {
+      "type": "os",
+      "key": "  OS",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "kernel",
+      "key": "│ ├ ",
+      "keyColor": "yellow"
+    },
+    // {
+    //   "type": "bios",
+    //   "key": "│ ├󰖡 ",
+    //   "keyColor": "yellow"
+    // },
+    {
+      "type": "packages",
+      "key": "│ ├󰏖 ",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "shell",
+      "key": "└ └ ",
+      "keyColor": "yellow"
+    },
+    "break",
+    {
+      "type": "wm",
+      "key": "  DE/WM",
+      "keyColor": "blue"
+    },
+    {
+      "type": "lm",
+      "key": "│ ├󰧨 ",
+      "keyColor": "blue"
+    },
+    {
+      "type": "terminal",
+      "key": "└ └󰆍 ",
+      "keyColor": "blue"
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[90m└────────────────────────────────────────────────────────┘"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "\u001b[90m┌───────────────────── Uptime / Age ─────────────────────┐"
+    },
+    {
+      "type": "uptime",
+      "key": "   󰅐 ",
+      "keyColor": "magenta"
     },
     {
       "condition": { // Conditional module: only show on non-macOS
         "!system": "macOS"
       },
       "type": "disk",
-      "key": "│ └",
-      "keyColor": "green",
+      "key": "    ",
+      "keyColor": "magenta",
       "folders": "/", // Check root filesystem
       "format": "{create-time:10} [{days} days]" // Show creation time and age in days
     },
@@ -135,25 +135,18 @@
         "system": "macOS"
       },
       "type": "disk",
-      "key": "│ └",
-      "keyColor": "green",
+      "key": "    ",
+      "keyColor": "magenta",
       "folders": "/System/Volumes/VM", // Work around for APFS on macOS
       "format": "{create-time:10} [{days} days]"
     },
     {
-      "type": "display",
-      "key": "│ └󰍹",
-      "keyColor": "green"
+      "type": "custom",
+      "format": "\u001b[90m└────────────────────────────────────────────────────────┘"
     },
     {
-      "type": "custom",
-      "format": "└{$1}{$1}┘",
-      "outputColor": "90"
-    },
-    "break",
-    {
-      "type": "custom",
-      "format": " {#90}  {#31}  {#32}  {#33}  {#34}  {#35}  {#36}  {#37}  {#38}  {#39}       {#38}  {#37}  {#36}  {#35}  {#34}  {#33}  {#32}  {#31}  {#90}"
+      "type": "colors",
+      "paddingLeft": 3
     }
   ]
 }

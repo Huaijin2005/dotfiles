@@ -151,7 +151,7 @@ window-rule {
 window-rule {
     match app-id=r#"^kitty$"#
     match app-id=r#"^com\.mitchellh\.ghostty$"#
-    default-column-width { proportion 0.333333; }
+    default-column-width { proportion 0.4; }
     background-effect {
         blur true
     }
