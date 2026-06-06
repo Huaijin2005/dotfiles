@@ -1,0 +1,5 @@
+*
+!.gitignore
+!default.custom.yaml
+!rime_ice.custom.yaml
+!fcitx5.custom.yaml

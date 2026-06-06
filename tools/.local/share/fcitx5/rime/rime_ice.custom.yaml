@@ -2,5 +2,6 @@ patch:
   "grammar/language": wanxiang-lts-zh-hans
   # ascii_punct: states [¥, $]; reset: 1 means default to ASCII punctuation.
   "switches/@1/reset": 1
+  # "switches/@0/reset": 1
   "key_binder/bindings/+":
     - { when: always, accept: Control+period, toggle: ascii_punct }

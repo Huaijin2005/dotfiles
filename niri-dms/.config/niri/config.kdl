@@ -121,6 +121,7 @@ animations {
         spring damping-ratio=0.85 stiffness=800 epsilon=0.0001
     }
 }
+// background blur
 blur {
     // 决定模糊的强度和半径（默认 3）。
     // 值越大模糊越丝滑、半径越大，但会成倍增加 GPU 的计算负担。
@@ -139,25 +140,7 @@ blur {
     // 提高饱和度能让毛玻璃背后的颜色更鲜艳，配合 DMS 的设计语言视觉效果极佳。
     saturation 1.5
 }
-// Work around WezTerm's initial configure bug by setting an empty default-column-width.
-window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
-    background-effect {
-        blur true
-    }
-}
-// Other terminals
-window-rule {
-    match app-id=r#"^kitty$"#
-    match app-id=r#"^com\.mitchellh\.ghostty$"#
-    default-column-width { proportion 0.4; }
-    background-effect {
-        blur true
-    }
-}
-window-rule {
-    match app-id=r#"^code$"#
+window-rule{
     background-effect {
         blur true
     }
@@ -165,10 +148,25 @@ window-rule {
 }
 window-rule {
     match app-id=r#"^com\.gitee\.gmg137\.NeteaseCloudMusicGtk4$"#
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    match app-id=r#"^kitty$"#
+    match app-id=r#"^com\.mitchellh\.ghostty$"#
     background-effect {
         blur true
     }
     opacity 0.9
+}
+
+// Work around WezTerm's initial configure bug by setting an empty default-column-width.
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+// Other terminals
+window-rule {
+    match app-id=r#"^kitty$"#
+    match app-id=r#"^com\.mitchellh\.ghostty$"#
+    default-column-width { proportion 0.4; }
 }
 window-rule {
     match app-id=r#"^org\.gnome\."#

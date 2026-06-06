@@ -1,0 +1,6 @@
+patch:
+  "app_options":
+    kitty:
+      ascii_mode: true
+    code:
+      ascii_mode: true
