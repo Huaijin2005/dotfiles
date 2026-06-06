@@ -129,7 +129,7 @@ blur {
     // 每次采样的偏移乘数（默认 3.0）。
     // 调大此值可以在【不增加 GPU 负担】的情况下扩大模糊半径。
     // 调试技巧：先试着调大 offset（比如调到 4.0），如果出现了画面撕裂或伪影，再回去增加 passes。
-    offset 3.0
+    offset 5.0
     
     // 噪点覆盖强度（默认 0.02）。
     // 给高斯模糊加上一层细微的噪点（毛玻璃质感），同时能有效防止色彩断层（Color Banding）。
@@ -162,6 +162,13 @@ window-rule {
         blur true
     }
     opacity 0.95
+}
+window-rule {
+    match app-id=r#"^com\.gitee\.gmg137\.NeteaseCloudMusicGtk4$"#
+    background-effect {
+        blur true
+    }
+    opacity 0.9
 }
 window-rule {
     match app-id=r#"^org\.gnome\."#
