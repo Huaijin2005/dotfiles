@@ -53,7 +53,13 @@
     },
     {
       "type": "disk",
-      "key": "└ └ ",
+      "key": "│ ├ ",
+      "keyColor": "green"
+    },
+    {
+      "type": "localip",
+      "key": "└ └󰩟 ",
+      "format": "{ipv4} ({ifname})",
       "keyColor": "green"
     },
     {

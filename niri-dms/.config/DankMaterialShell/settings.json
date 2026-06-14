@@ -15,7 +15,7 @@
   "cornerRadius": 12,
   "niriLayoutGapsOverride": -1,
   "niriLayoutRadiusOverride": -1,
-  "niriLayoutBorderSize": -1,
+  "niriLayoutBorderSize": 1,
   "hyprlandLayoutGapsOverride": -1,
   "hyprlandLayoutRadiusOverride": -1,
   "hyprlandLayoutBorderSize": -1,
@@ -240,7 +240,7 @@
   "acLockTimeout": 0,
   "acSuspendTimeout": 0,
   "acSuspendBehavior": 0,
-  "acProfileName": "2",
+  "acProfileName": "",
   "batteryMonitorTimeout": 180,
   "batteryLockTimeout": 300,
   "batterySuspendTimeout": 0,
@@ -457,22 +457,6 @@
         {
           "id": "separator",
           "enabled": true
-        },
-        {
-          "id": "cpuUsage",
-          "enabled": true,
-          "minimumWidth": false
-        },
-        {
-          "id": "cpuTemp",
-          "enabled": true,
-          "minimumWidth": false
-        },
-        {
-          "id": "amdGpuMonitor",
-          "enabled": true,
-          "minimumWidth": true,
-          "showSwap": false
         },
         {
           "id": "memUsage",
