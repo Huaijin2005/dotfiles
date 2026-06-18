@@ -1,8 +1,15 @@
 {
-  "currentThemeName": "dynamic",
-  "currentThemeCategory": "dynamic",
-  "customThemeFile": "",
-  "registryThemeVariants": {},
+  "currentThemeName": "custom",
+  "currentThemeCategory": "registry",
+  "customThemeFile": "/home/huaijin/.config/DankMaterialShell/themes/catppuccin/theme.json",
+  "registryThemeVariants": {
+    "catppuccin": {
+      "dark": {
+        "flavor": "mocha",
+        "accent": "blue"
+      }
+    }
+  },
   "matugenScheme": "scheme-vibrant",
   "runUserMatugenTemplates": true,
   "matugenTargetMonitor": "HDMI-A-1",
