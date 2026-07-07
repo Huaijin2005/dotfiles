@@ -1,4 +1,8 @@
-alias ff="fastfetch"
+if [ -f /etc/NIXOS ]; then
+    alias ff='fastfetch --logo ~/.config/fastfetch/NixOS.png'
+else
+    alias ff="fastfetch"
+fi
 alias python="python3"
 alias arch="uname -m"
 alias untar='tar -xvf '

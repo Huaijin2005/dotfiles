@@ -174,7 +174,7 @@
   "runningAppsGroupByApp": false,
   "runningAppsCurrentMonitor": false,
   "appIdSubstitutions": [],
-  "centeringMode": "index",
+  "centeringMode": "geometric",
   "clockDateFormat": "",
   "lockDateFormat": "",
   "greeterRememberLastSession": true,
@@ -244,7 +244,7 @@
   "soundVolumeChanged": true,
   "soundPluggedIn": true,
   "acMonitorTimeout": 600,
-  "acLockTimeout": 0,
+  "acLockTimeout": 600,
   "acSuspendTimeout": 0,
   "acSuspendBehavior": 0,
   "acProfileName": "",
@@ -385,8 +385,6 @@
     "logout",
     "poweroff",
     "lock",
-    "suspend",
-    "hibernate",
     "restart"
   ],
   "powerMenuDefaultAction": "lock",
@@ -416,7 +414,7 @@
       "id": "default",
       "name": "Main Bar",
       "enabled": true,
-      "position": 0,
+      "position": 2,
       "screenPreferences": [
         "all"
       ],
@@ -442,7 +440,11 @@
       ],
       "centerWidgets": [
         "clock",
-        "weather"
+        "weather",
+        {
+          "id": "powerMenuButton",
+          "enabled": true
+        }
       ],
       "rightWidgets": [
         {
@@ -500,7 +502,7 @@
         }
       ],
       "spacing": 0,
-      "innerPadding": 4,
+      "innerPadding": -4,
       "bottomGap": 0,
       "transparency": 0.5,
       "widgetTransparency": 1,
@@ -510,7 +512,7 @@
       "maximizeWidgetText": false,
       "removeWidgetPadding": false,
       "widgetPadding": 8,
-      "gothCornersEnabled": true,
+      "gothCornersEnabled": false,
       "gothCornerRadiusOverride": false,
       "gothCornerRadiusValue": 12,
       "borderEnabled": false,
@@ -538,7 +540,7 @@
       "shadowOpacity": 60,
       "shadowColorMode": "text",
       "shadowCustomColor": "#000000",
-      "clickThrough": true
+      "clickThrough": false
     }
   ],
   "desktopClockEnabled": false,
