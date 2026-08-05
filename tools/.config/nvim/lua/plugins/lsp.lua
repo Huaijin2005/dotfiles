@@ -1,21 +1,4 @@
 return {
-  -- mason: download lsp
-  {
-    "mason-org/mason.nvim",
-    opts = {
-      ensure_installed = {},
-    },
-  },
-
-  -- nvim-lspconfig & blink.cmp: configuration for lsp & code completion
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = { "saghen/blink.cmp" },
-    config = function()
-      local capabilities = require(blink.cmp).get_lsp_capabilities()
-      local lspconfig = require("lspconfig")
-
-      lspconfig["lua_ls"].set_up({ capabilities = capabilities })
-    end,
-  },
+  -- 在这里覆盖已启用 language extra 的 LSP 设置，或配置没有官方 extra 的语言服务器。
+  -- LazyVim language extra 必须在 lua/extras/languages.lua 中启用，以保证正确的导入顺序。
 }

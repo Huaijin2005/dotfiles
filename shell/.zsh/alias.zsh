@@ -14,7 +14,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
-alias nano='vim'
+#alias nano='vim'
 
 if [ -x "$(command -v trash-put)" ]; then
     alias rm="trash-put"

@@ -36,3 +36,9 @@ eval "$(zoxide init zsh)"
 if [ -x /usr/bin/gnome-keyring-daemon ] && [ -z "$GNOME_KEYRING_CONTROL" ]; then
     export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gcr/ssh"
 fi
+
+# mise
+eval "$(mise activate zsh)"
+
+# Bun global binaries
+export PATH="$HOME/.bun/bin:$PATH"
