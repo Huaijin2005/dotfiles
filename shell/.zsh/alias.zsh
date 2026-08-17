@@ -20,7 +20,7 @@ if [ -x "$(command -v trash-put)" ]; then
     alias rm="trash-put"
 fi
 if [ -x "$(command -v eza)" ]; then
-    alias ls="eza -a --color=always --group-directories-first --icons"
+    alias ls="eza -a --color=always --group-directories-first --icons=always"
 fi
 if [ -x "$(command -v zoxide)" ]; then
     alias cd="z"
