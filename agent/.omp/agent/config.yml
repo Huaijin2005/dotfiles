@@ -1,0 +1,41 @@
+providers: 
+  webSearchOrder: 
+    - exa
+    - perplexity
+    - gemini
+    - anthropic
+    - codex
+    - xai
+    - zai
+    - tinyfish
+    - jina
+    - kagi
+    - tavily
+    - firecrawl
+    - brave
+    - kimi
+    - parallel
+    - synthetic
+    - searxng
+    - startpage
+    - duckduckgo
+    - ecosia
+    - google
+    - mojeek
+    - public
+setupVersion: 1
+modelRoles: 
+  default: openai-codex/gpt-5.6-sol:medium
+theme: 
+  dark: dark-catppuccin
+symbolPreset: unicode
+statusLine: 
+  preset: full
+  separator: slash
+  transparent: false
+terminal: 
+  showProgress: true
+tools: 
+  approvalMode: yolo
+defaultThinkingLevel: auto
+hideThinkingBlock: true
