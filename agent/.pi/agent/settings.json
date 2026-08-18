@@ -1,0 +1,17 @@
+{
+  "lastChangelogVersion": "0.84.2",
+  "theme": "catppuccin-mocha",
+  "defaultProvider": "deepseek",
+  "defaultModel": "deepseek-v4-flash",
+  "tuiMode": "fullscreen",
+  "defaultThinkingLevel": "high",
+  "packages": [
+    "npm:@firstpick/pi-themes-bundle",
+    "npm:pi-web-access",
+    "npm:pi-mcp-adapter",
+    "npm:@narumitw/pi-btw",
+    "npm:@plannotator/pi-extension",
+    "npm:@gotgenes/pi-permission-system",
+    "npm:pi-sandbox"
+  ]
+}
